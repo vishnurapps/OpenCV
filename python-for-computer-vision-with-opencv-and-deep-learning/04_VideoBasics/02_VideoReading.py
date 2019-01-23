@@ -1,4 +1,5 @@
 import cv2
+import time
 
 cap = cv2.VideoCapture('mysupervideo.mp4')
 
@@ -9,7 +10,8 @@ while cap.isOpened():
     ret, frame = cap.read()
     
     if ret == True:
-    
+        #reduce framerate for humans
+        time.sleep(1/30)
         cv2.imshow('frame', frame)
 
         if cv2.waitKey(10) & 0xFF == ord('q'):
